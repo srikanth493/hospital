@@ -1,0 +1,15 @@
+
+
+<%= form_with model: @patient do |f| %>
+
+ 
+
+
+ <p> Name: <%= f.text_field :name %></p>
+ <p> DOB: <%=f.date_field :dob %> </p>
+ <p> Age: <%=f.number_field :age %> </p>
+ <p> Gender: <%=f.radio_button :gender, "Male" %> Male
+ 			<%= f.radio_button :gender, "Female" %> Female </p>
+
+<%=f.submit %>
+<% end %>

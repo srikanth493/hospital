@@ -1,0 +1,8 @@
+<h1>Patients#show</h1>
+
+<p> Name: <%= @patient.name%> </p>
+<p> Dob: <%= @patient.dob %></p>
+<p> Age:  <%= @patient.age %></p>
+<p> Gender:  <%=@patient.gender %> </p>
+
+<%= link_to '<button>BACK</button>'.html_safe, patients_path%>

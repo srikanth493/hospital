@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hospital</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body bgcolor="#f7ebaa">
+      <font color="red">Patients:  </font> &nbsp;&nbsp;&nbsp;
+    <%= link_to "New", new_patient_path %>
+    <%= link_to "Index", patients_path %> , &nbsp;&nbsp;&nbsp;
+    <font color="red">Bills:  </font>
+    <%= link_to "New", new_bill_path %>
+    &nbsp;&nbsp;
+    <b><%= link_to "Total Bills", bills_path %></b> <br/>
+    
+    <font color="red">Physicians: </font>
+    <%= link_to "New", new_physician_path %>
+    <%= link_to "Index", physicians_path %> ,
+    &nbsp;&nbsp;&nbsp;
+    <font color="red">Appointments: </font>
+    <%= link_to "New", new_appointment_path %>
+    <%= link_to "Index", appointments_path %>
+    
+    <hr color="red ">
+    <%= yield %>
+  </body>
+</html>

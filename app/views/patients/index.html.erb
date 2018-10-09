@@ -1,0 +1,35 @@
+<h1>Patients#index</h1>
+
+<table border="1">
+	<thead bgcolor="#e8dcdc" >
+		<th>Name </th>
+		<th>DOB</th>
+		<th>Age</th>
+		<th>Gender</th>
+		<th>Change</th>
+		<th>Bills</th>
+		<th>Book Appoint.</th>
+	</thead>
+	<tbody bgcolor="#f9f9f4">
+		<% @patients.each do |f| %>
+		<tr> 
+			<td> <%=f.name %> </td>
+			<td> <%=f.dob %></td>
+			<td> <%=f.age %></td>
+			<td> <%=f.gender %></td>
+
+			<th> <%= link_to "Edit", edit_patient_path(f) %> , 
+				<%= link_to " Del.", patient_path(f) , method: :delete, data: { confirm: "Are you sure, delete #{f.name} ? " } %>  </th>
+
+			<td> <%= link_to '<button style="color:red" > Add New</button>'.html_safe, new_patient_bill_bill_path(f) %>
+				<%= link_to "<button style='color:blue' >Exist</button>".html_safe, index_bill_bill_path(f) %>
+					<%= %>
+
+				</td>
+			<td> <%= link_to "Book", book_appointment_path(f) %></td>
+
+			
+		</tr>
+		<% end %>
+	</tbody>
+</table>

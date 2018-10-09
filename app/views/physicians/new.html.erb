@@ -1,0 +1,9 @@
+<h1>Physicians#new</h1>
+
+<%= form_with model: @physician, local:true do |py| %>
+<p>Name: <%= py.text_field :name%> </p>
+<p>Age: <%= py.number_field :age %> </p>
+<p>Experience: <%= py.number_field :expeeriance %> </p>
+<p><%= py.submit %></p>
+
+<% end %> 

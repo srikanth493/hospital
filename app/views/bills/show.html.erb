@@ -1,0 +1,12 @@
+<h1>Bills#show</h1>
+
+<p> Patient_Name: <b style='text-transform:uppercase' ><%= @pat.name %></b> </p>
+<p> DOB: <%= @pat.dob %> </p>
+<p> Age: <%= @pat.age %> </p>
+<p> Gender: <%= @pat.gender %></b> </p>
+<p> Invoice No: <%= @bill.invoice_no %></p>
+<p> Bill Date: <%= @bill.bill_date %></p>
+<p> Amount: <%= @bill.amount%></p>
+
+
+<%= link_to '<button>BACK</button>'.html_safe, patients_path%>

@@ -1,0 +1,29 @@
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#addMedicine").click(function(){
+		event.preventDefault();
+		$('#medicineField').show();
+		$('#medicineField').append($('#medicineField').html());
+		});
+	});
+</script>
+<h1>Bills#new</h1>
+<p> <%= form_with model: @bill, local: true do |f| %></p>
+<p>Invoice No: <%=f.text_field :invoice_no, value:["AB"+ rand(0000..99999).to_s],readonly: true %></p>
+<p>Bill Date: <%= f.date_field :bill_date,value: Time.now.to_date, readonly: true %></p>
+<p>Amount: <%=f.text_field :amount, value: 0.0 %></p>
+<% if @bill.patient_id == nil %> 
+<p> Select Patient Name: <%= f.select(:patient_id, Patient.all.collect {|a| [a.name, a.id]},include_blank: true) %></p>
+<% else %>
+<p> <%= f.hidden_field :patient_id %></p>
+<% end %>
+<button id="addMedicine"> Add Medicine</button>
+
+<div id="medicineField" style="display: none;">
+<p> Medicine: <%= select_tag "medicine[]", options_from_collection_for_select( Medicine.all, "id", "name"), include_blank: true %> </p>	
+</div>
+<p><%=f.submit %></p>
+
+<p><%end %></p>
+
+

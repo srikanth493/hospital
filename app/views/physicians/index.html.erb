@@ -1,0 +1,20 @@
+<h3>Physicians#index</h3>
+
+
+<table border="1">
+	<thead bgcolor="#e8dcdc" >
+		<th>Name </th>
+		<th>Age</th>
+		<th>Expeience</th>
+		
+	</thead>
+	<tbody bgcolor="#f9f9f4">
+		<% @physicians.each do |f| %>
+		<tr> 
+			<td> <%=f.name %> </td>
+			<td> <%=f.age %></td>
+			<td> <%=f.expeeriance %></td>	
+		</tr>
+		<% end %>
+	</tbody>
+</table>

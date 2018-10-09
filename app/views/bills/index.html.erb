@@ -1,0 +1,56 @@
+<% if @patient %>
+<p>Name: <%=@patient.name %> </p>
+<p>Gender: <%=@patient.gender %> </p>
+<p style="color:blue"> Total Amount :<b> <%=@patient.bills.pluck(:amount).reduce(:+) %> </b> &nbsp;&nbsp;
+<%= link_to '<button style="color:black" > Add More</button>'.html_safe, new_patient_bill_bill_path(@patient) %>
+</p>
+
+<table border="1">
+	<thead bgcolor="#e8dcdc">
+		<tr>
+			<th>Invoice No:</th>
+			<th>Bill date:</th>
+			<th>Amount:</th>
+		</tr>
+	</thead>
+<% @patient.bills.each do |b|%>
+	<tbody bgcolor="#f9f9f4">
+		<tr>
+			<td><%=b.invoice_no %></td>
+			<td><%=b.bill_date %></td>
+			<td><%=b.amount %></td>
+		</tr>
+	</tbody>
+<% end%>
+</table>
+
+<% else %>
+
+<p style="color:red"> Total Amount :<b> <%= @bills.pluck(:amount).reduce(:+) %> </b></p>
+<table border="1">
+	<thead bgcolor="#e8dcdc">
+		<tr>
+			<th>Invoice No:</th>
+			<th>Bill date:</th>
+			<th>Amount:</th>
+		</tr>
+	</thead>
+	<tbody>
+	<p><% @bills.each do |b|%> </p>
+		<tr bgcolor="#f9f9f4">
+			<td><%=b.invoice_no %></td>
+			<td><%=b.bill_date %></td>
+			<td><%=b.amount %></td>
+		</tr>
+	</tbody>
+	<%end%>
+</table>
+
+<% end %>
+
+
+
+
+
+
+

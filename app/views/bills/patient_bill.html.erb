@@ -1,0 +1,13 @@
+<h1>Bills#new</h1>
+<p> <%= form_with model: @bill, local: true do |f| %></p>
+<p>Invoice No: <%=f.text_field :invoice_no, value:["AB"+ rand(0000..99999).to_s],readonly: true %></p>
+<p>Bill Date: <%= f.date_field :bill_date,value: Time.now.to_date, readonly: true %></p>
+
+<p> <%= f.hidden_field :patient_id %></p>
+
+<p>Amount: <%=f.text_field :amount, value: 0.0 %></p>
+<p><%=f.submit %></p>
+<p><%end %></p
+
+
+<%= link_to '<button>BACK</button>'.html_safe, patients_path%>

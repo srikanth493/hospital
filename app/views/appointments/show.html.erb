@@ -1,0 +1,10 @@
+<h1>Appointments#show</h1>
+
+<p>Date:- <b><%= @appoint.appointment_date%> </b></p>
+<p>Patient:- <b><%= @appoint.patient.name %></b> </p>
+
+<p>Concerned Physician:- <b><%= @appoint.physician.name %></b> </p>
+
+<%= link_to '<button>BACK</button>'.html_safe, appointments_path%>
+
+

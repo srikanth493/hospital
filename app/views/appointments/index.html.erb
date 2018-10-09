@@ -1,0 +1,36 @@
+<h4>Appointments#index</h4>
+<p> Search by: <b>Physician</b> <%= @appoints.select(:name, Patient.inspect) %> </p><br/>
+	<b>Patient</b> 
+
+	<%= select(:physician_id, Patient.all.collect {|p| [p.name, p.id]},include_blank: true) %> </p>
+
+</p>
+<br/>
+<h3>All Appointments</h3>
+<table border="1">
+	<thead  bgcolor="#e8dcdc">
+		<th>Date</th>
+		<th>Patient</th>
+		<th>Physician</th>
+		<th>Modifications</th>
+
+	</thead>
+<% @appoints.each do |f| %>
+	<tbody bgcolor="#f9f9f4">
+	<tr>
+	<td><%=f.appointment_date %></td>
+    <td><%= f.patient.name.capitalize%></td>	
+     <td><%=f.physician.name%></td>
+	<td>
+		<%= link_to "Show", appointment_path(f) %> , 
+		<%= link_to "Edit", edit_appointment_path(f) %> , 
+		<%= link_to "Del.", appointment_path(f), method: :delete, data: {confirm: "Are you sure to Delete ?"}  %>
+
+	</td>	
+
+	</tr>
+
+
+	</tbody>
+<%end%>	
+</table>
